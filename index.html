@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from bhargav-weds-chandana.vercel.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2026 18:55:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <title>💍 Keesaram Raveendra Babu & Murakambattu Aswini | Wedding Invitation</title>
+
+  <meta
+    name="description"
+    content="You're warmly invited to celebrate our wedding."
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="💍 Keesaram Raveendra Babu & Murakambattu Aswini | Wedding Invitation" />
+  <meta property="og:description" content="View invitation, events, venue and RSVP." />
+  <meta property="og:image" content="https://yourwebsite.vercel.app/banner.jpej" />
+  <meta property="og:url" content="https://bhargav-eight.vercel.app/" />
+  
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Keesaram family cordially invites you to the wedding of Chi. Keesaram Raveendra Babu with Chi. Sau. Murakambattu Aswini on July 8th, 2026. Join us for this auspicious occasion." />
+    
+    <!-- Google Fonts for Traditional Indian Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&amp;family=Great+Vibes&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Space+Grotesk:wght@300;400;500;600&amp;family=Noto+Serif+Telugu:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <title>Chi. Keesaram Raveendra Babu Weds Chi. Sau. Murakambattu Aswini - Traditional Wedding Invitation</title>
+    <script type="module" crossorigin src="assets/index-BKvX01du.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-BvBUMUV2.css">
+  </head>
+  <body class="bg-[#2b0c10] text-[#fffdf6] overflow-x-hidden antialiased selection:bg-gold-500 selection:text-maroon-950">
+    <div id="root"></div>
+  
+  <!-- Audio Overlay & Controls Added via Script -->
+  <style>
+    #audio-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #2b0c10; z-index: 9999999; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; color: #d4af37;
+      transition: opacity 1s ease-out; cursor: pointer; font-family: 'Cinzel', serif;
+    }
+    #audio-overlay h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 600; text-align: center; }
+    #audio-overlay p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px; font-family: 'Inter', sans-serif;}
+    #audio-overlay .pulse { animation: pulse 2s infinite; font-size: 3rem; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    
+    #lang-toggle, #music-toggle {
+      position: fixed; z-index: 999999; background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px); border: 1px solid rgba(212, 175, 55, 0.5);
+      color: #d4af37; border-radius: 50px; cursor: pointer;
+      display: none; transition: all 0.3s ease;
+    }
+    #lang-toggle { top: 20px; right: 20px; padding: 8px 16px; font-family: 'Inter', sans-serif; }
+    #music-toggle { bottom: 20px; right: 20px; width: 55px; height: 55px; padding: 0; align-items: center; justify-content: center; font-size: 1.5rem;}
+    
+    .lang-active { font-weight: bold; color: #fff; }
+    #lang-toggle span { opacity: 0.7; }
+    #lang-toggle span.lang-active { opacity: 1; }
+  </style>
+  
+  <div id="audio-overlay">
+    <h1>Keesaram Raveendra Babu <br/> & <br/> Murakambattu Aswini</h1>
+    <p>Tap to Open Invitation</p>
+    <div class="pulse">❤️</div>
+  </div>
+  
+  <button id="lang-toggle"><span id="lang-en" class="lang-active">EN</span> | <span id="lang-te" style="font-family:'Noto Serif Telugu'">తెలుగు</span></button>
+  <button id="music-toggle" style="display: none; align-items: center; justify-content: center;">🎵</button>
+  
+  <audio id="bgm-audio" loop src="/public/audio/wedding-music.mp3"></audio>
+
+  <script>
+    const overlay = document.getElementById('audio-overlay');
+    const audio = document.getElementById('bgm-audio');
+    const musicBtn = document.getElementById('music-toggle');
+    const langBtn = document.getElementById('lang-toggle');
+    let isPlaying = false;
+    
+    overlay.addEventListener('click', () => {
+      audio.play().then(() => {
+        isPlaying = true;
+        musicBtn.innerHTML = '🎵';
+      }).catch(e => console.error('Audio play blocked:', e));
+      
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 1000);
+      
+      musicBtn.style.display = 'flex';
+      langBtn.style.display = 'block';
+    });
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) { audio.pause(); musicBtn.innerHTML = '🔇'; }
+      else { audio.play(); musicBtn.innerHTML = '🎵'; }
+      isPlaying = !isPlaying;
+    });
+
+    // Translation Map
+    let currentLang = 'en';
+    const translations = {
+      "Keesaram Raveendra Babu": "కీసారం రవీంద్ర బాబు",
+      "Murakambattu Aswini": "మురకంబట్టు అశ్విని",
+      "KEESARAM RAVEENDRA BABU": "కీసారం రవీంద్ర బాబు",
+      "MURAKAMBATTU ASWINI": "మురకంబట్టు అశ్విని",
+      "weds": "మరియు",
+      "Reception": "రిసెప్షన్",
+      "Dinner": "విందు",
+      "Auspicious Muhurtham": "శుభ ముహూర్తం",
+      "Saturday, September 12, 2026": "12 సెప్టెంబర్ 2026, శనివారం",
+      "7:00 PM onwards": "సాయంత్రం 7:00 గంటల నుండి",
+      "Sunday, September 13, 2026": "13 సెప్టెంబర్ 2026, ఆదివారం",
+      "Between 3:00 AM - 4:00 AM": "తెల్లవారుజామున 3:00 – 4:00 గంటల మధ్య",
+      "Sri Subramanyaswamy Kalyana Mandapam": "శ్రీ సుబ్రహ్మణ్యస్వామి కళ్యాణ మండపం",
+      "Utla Varipalli,": "ఉట్లవారిపల్లి,",
+      "Pakala Mandal,": "పాకాల మండలం,",
+      "Tirupati District.": "తిరుపతి జిల్లా.",
+      "Sri K. Muneendra": "శ్రీ కె. మునీంద్ర",
+      "Smt. K. Saraswathi": "శ్రీమతి కె. సరస్వతి",
+      "Sri M. Sriramulu": "శ్రీ ఎం. శ్రీరాములు",
+      "Smt. M. Ranemma": "శ్రీమతి ఎం. రణెమ్మ",
+      "ProgVision": "ప్రోగ్‌విజన్"
+    };
+    
+    let originalTexts = new Map();
+
+    function walkDOMAndTranslate(node) {
+      if (node.nodeType === 3) {
+        let text = node.nodeValue;
+        if (text && text.trim().length > 0) {
+          if (currentLang === 'te') {
+            if (!originalTexts.has(node)) originalTexts.set(node, text);
+            let newText = originalTexts.get(node);
+            for (const [en, te] of Object.entries(translations)) {
+              newText = newText.replace(new RegExp(en, 'gi'), te);
+            }
+            if (newText !== text) node.nodeValue = newText;
+          } else {
+            if (originalTexts.has(node)) {
+              node.nodeValue = originalTexts.get(node);
+            }
+          }
+        }
+      } else if (node.nodeType === 1 && node.nodeName !== "SCRIPT" && node.nodeName !== "STYLE" && node.id !== "lang-toggle" && node.id !== "audio-overlay") {
+        for (let i = 0; i < node.childNodes.length; i++) {
+          walkDOMAndTranslate(node.childNodes[i]);
+        }
+      }
+    }
+
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'te' : 'en';
+      document.getElementById('lang-en').className = currentLang === 'en' ? 'lang-active' : '';
+      document.getElementById('lang-te').className = currentLang === 'te' ? 'lang-active' : '';
+      walkDOMAndTranslate(document.body);
+    });
+
+    setInterval(() => {
+      if (currentLang === 'te') walkDOMAndTranslate(document.body);
+    }, 1000);
+  </script>
+</body>
+
+
+<!-- Mirrored from bhargav-weds-chandana.vercel.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2026 18:55:19 GMT -->
+</html>
