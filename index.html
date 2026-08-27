@@ -36,70 +36,26 @@
   <body class="bg-[#2b0c10] text-[#fffdf6] overflow-x-hidden antialiased selection:bg-gold-500 selection:text-maroon-950">
     <div id="root"></div>
   
-  <!-- Audio Overlay & Controls Added via Script -->
+  
+  <!-- Language Toggle Added via Script -->
   <style>
-    #audio-overlay {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #2b0c10; z-index: 9999999; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; color: #d4af37;
-      transition: opacity 1s ease-out; cursor: pointer; font-family: 'Cinzel', serif;
-    }
-    #audio-overlay h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 600; text-align: center; }
-    #audio-overlay p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px; font-family: 'Inter', sans-serif;}
-    #audio-overlay .pulse { animation: pulse 2s infinite; font-size: 3rem; }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-    
-    #lang-toggle, #music-toggle {
+    #lang-toggle {
       position: fixed; z-index: 999999; background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(5px); border: 1px solid rgba(212, 175, 55, 0.5);
       color: #d4af37; border-radius: 50px; cursor: pointer;
-      display: none; transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      top: 20px; right: 20px; padding: 8px 16px; font-family: 'Inter', sans-serif;
     }
-    #lang-toggle { top: 20px; right: 20px; padding: 8px 16px; font-family: 'Inter', sans-serif; }
-    #music-toggle { bottom: 20px; right: 20px; width: 55px; height: 55px; padding: 0; align-items: center; justify-content: center; font-size: 1.5rem;}
-    
     .lang-active { font-weight: bold; color: #fff; }
     #lang-toggle span { opacity: 0.7; }
     #lang-toggle span.lang-active { opacity: 1; }
   </style>
   
-  <div id="audio-overlay">
-    <h1>Keesaram Raveendra Babu <br/> & <br/> Murakambattu Aswini</h1>
-    <p>Tap to Open Invitation</p>
-    <div class="pulse">❤️</div>
-  </div>
-  
   <button id="lang-toggle"><span id="lang-en" class="lang-active">EN</span> | <span id="lang-te" style="font-family:'Noto Serif Telugu'">తెలుగు</span></button>
-  <button id="music-toggle" style="display: none; align-items: center; justify-content: center;">🎵</button>
   
-  <audio id="bgm-audio" loop src="/public/audio/wedding-music.mp3"></audio>
-
   <script>
-    const overlay = document.getElementById('audio-overlay');
-    const audio = document.getElementById('bgm-audio');
-    const musicBtn = document.getElementById('music-toggle');
     const langBtn = document.getElementById('lang-toggle');
-    let isPlaying = false;
     
-    overlay.addEventListener('click', () => {
-      audio.play().then(() => {
-        isPlaying = true;
-        musicBtn.innerHTML = '🎵';
-      }).catch(e => console.error('Audio play blocked:', e));
-      
-      overlay.style.opacity = '0';
-      setTimeout(() => overlay.style.display = 'none', 1000);
-      
-      musicBtn.style.display = 'flex';
-      langBtn.style.display = 'block';
-    });
-
-    musicBtn.addEventListener('click', () => {
-      if (isPlaying) { audio.pause(); musicBtn.innerHTML = '🔇'; }
-      else { audio.play(); musicBtn.innerHTML = '🎵'; }
-      isPlaying = !isPlaying;
-    });
-
     // Translation Map
     let currentLang = 'en';
     const translations = {
@@ -145,7 +101,7 @@
             }
           }
         }
-      } else if (node.nodeType === 1 && node.nodeName !== "SCRIPT" && node.nodeName !== "STYLE" && node.id !== "lang-toggle" && node.id !== "audio-overlay") {
+      } else if (node.nodeType === 1 && node.nodeName !== "SCRIPT" && node.nodeName !== "STYLE" && node.id !== "lang-toggle") {
         for (let i = 0; i < node.childNodes.length; i++) {
           walkDOMAndTranslate(node.childNodes[i]);
         }
@@ -163,7 +119,27 @@
       if (currentLang === 'te') walkDOMAndTranslate(document.body);
     }, 1000);
   </script>
+
+<!-- Firebase Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYgLyQh59Iw34l4hEmhmbJtgCAV4uAUIE",
+      authDomain: "raveendra-weds-aswini.firebaseapp.com",
+      projectId: "raveendra-weds-aswini",
+      storageBucket: "raveendra-weds-aswini.firebasestorage.app",
+      messagingSenderId: "354901888217",
+      appId: "1:354901888217:web:ce2744c07efdeacb2142c8",
+      measurementId: "G-QBELKJMNF8"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
+
 
 
 <!-- Mirrored from bhargav-weds-chandana.vercel.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2026 18:55:19 GMT -->
